@@ -75,15 +75,24 @@ export class HomePage {
   }
   
   limpiarDatos() {
-    this.nombre = '';
-    this.apellido = '';
-    this.selectedOption = '';
-    this.selectedDate = null as any;
-    this.animationState = 'out'; 
+    if (this.nombre.trim() !== '' || this.apellido.trim() !== '') {
+      setTimeout(() => {
+        this.animationState = 'in';
+      }, 500); 
 
-    setTimeout(() => {
-      this.animationState = 'in';
-    }, 500); 
+      this.nombre = '';
+      this.apellido = '';
+      this.selectedOption = '';
+      this.selectedDate = null as any;
+      this.animationState = 'out'; 
+
+    } else {
+      this.nombre = '';
+      this.apellido = '';
+      this.selectedOption = '';
+      this.selectedDate = null as any;
+      this.animationState = 'in'; 
+    }
   }
-
 }
+
